@@ -106,6 +106,7 @@ services:
   
 openunison:
   replicas: 1
+  orchestra_login_portal_name: openunison
   non_secret_data:
     K8S_DB_SSO: oidc
     PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
