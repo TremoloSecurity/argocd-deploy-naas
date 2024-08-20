@@ -7,7 +7,8 @@ network:
   force_redirect_to_tls: false
   createIngressCertificate: false
   ingress_type: nginx
-  ingress_annotations: []
+  ingress_annotations:
+    cert-manager.io/cluster-issuer: enterprise-ca
     
 
 cert_template:
