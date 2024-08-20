@@ -137,11 +137,11 @@ smtp:
   user: "none"
   from: donotreply@domain.com
   tls: false
-  
+
 database:
   hibernate_dialect: org.hibernate.dialect.PostgreSQLDialect
   quartz_dialect: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
   driver: org.postgresql.Driver
-  url: jdbc:postgresql://postgresql.postgres.svc.cluster.local:5432/openunison
+  url: jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/openunison
   user: admin
   validation: SELECT 1
