@@ -143,5 +143,5 @@ database:
   quartz_dialect: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
   driver: org.postgresql.Driver
   url: jdbc:postgresql://postgresql.postgresql.svc.cluster.local:5432/openunison
-  user: admin
+  user: postgres
   validation: SELECT 1
