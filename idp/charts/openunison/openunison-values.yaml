@@ -1,7 +1,7 @@
 network:
-  openunison_host: "k8s-ou.domain.dev"
-  dashboard_host: "k8s-db.domain.dev"
-  api_server_host: "k8s-api.domain.dev"
+  openunison_host: "k8sou.idp-cp2.tremolo.dev"
+  dashboard_host: "k8sdb.idp-cp2.tremolo.dev"
+  api_server_host: "k8sapi.idp-cp2.tremolo.dev"
   session_inactivity_timeout_seconds: 900
   k8s_url: https://192.168.2.130:6443
   force_redirect_to_tls: false
@@ -20,8 +20,8 @@ cert_template:
 
 
 myvd_config_path: "WEB-INF/myvd.conf"
-k8s_cluster_name: my-cluster
-enable_impersonation: false
+k8s_cluster_name: control-plane
+enable_impersonation: true
 
 impersonation:
   use_jetstack: true
@@ -56,19 +56,20 @@ monitoring:
 #  con_type: ldaps
 #  srv_dns: "false"
 
-#oidc:
-#  client_id: xxxxxx
-#  issuer: https://xxxxxx.okta.com/
-#  user_in_idtoken: false
-#  domain: ""
-#  scopes: openid email profile groups
-#  claims:
-#    sub: sub
-#    email: email
-#    given_name: given_name
-#    family_name: family_name
-#    display_name: name
-#    groups: groups
+oidc:
+ client_id: 0oan5lim7ox8IiU99357
+ issuer: https://dev-874494.okta.com/
+ user_in_idtoken: false
+ domain: ""
+ scopes: openid email profile groups
+ claims:
+   sub: sub
+   email: email
+   given_name: given_name
+   family_name: family_name
+   display_name: name
+   groups: groups
+ type: okta
 
 #github:
 #  client_id: d85d77c55a08c9bcbb15
@@ -107,8 +108,40 @@ openunison:
   non_secret_data:
     K8S_DB_SSO: oidc
     PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
-
+    SHOW_PORTAL_ORGS: "true"
+  role_attribute: portalGroups
+  groups:
+    areJson: "true"
+  enable_provisioning: true
+  use_standard_jit_workflow: false
+  naas:
+    groups:
+      external:
+        enabled: true
+        adminGroup: k8s-admins
+        clusterAdminGroup: k8s-admins
   secrets: []
   html:
     prefix: openunison
-  enable_provisioning: false
+  amq:
+    enabled: true
+    ha: false
+    pvc:
+      enabled: true
+      accessmode: ReadWriteOnce
+      storageclass: local-path
+  
+smtp:
+  host: blackhole.blackhole.svc.cluster.local
+  port: 1025
+  user: "none"
+  from: donotreply@domain.com
+  tls: false
+  
+database:
+  hibernate_dialect: org.hibernate.dialect.PostgreSQLDialect
+  quartz_dialect: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+  driver: org.postgresql.Driver
+  url: jdbc:postgresql://postgresql.postgres.svc.cluster.local:5432/openunison
+  user: admin
+  validation: SELECT 1
