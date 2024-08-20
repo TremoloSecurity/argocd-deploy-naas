@@ -111,6 +111,7 @@ openunison:
     K8S_DB_SSO: oidc
     PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
     SHOW_PORTAL_ORGS: "true"
+    K8S_DEPLOYMENT_NAME: Control Plane
   role_attribute: portalGroups
   groups:
     areJson: "true"
