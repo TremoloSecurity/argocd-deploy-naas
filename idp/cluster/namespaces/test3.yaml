@@ -1,0 +1,10 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: "test3"
+  labels:
+    name: "test3"
+
+  annotations:
+    tremolo.io/managedByGit: "true"
+    tremolo.io/giturl: git@github.com:TremoloSecurity/argocd-deploy-naas.git
