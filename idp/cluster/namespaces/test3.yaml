@@ -4,7 +4,6 @@ metadata:
   name: "test3"
   labels:
     name: "test3"
-    tremolo.io/request-access: 
 
   annotations:
     tremolo.io/managedByGit: "true"
