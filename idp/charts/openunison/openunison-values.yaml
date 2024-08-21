@@ -118,6 +118,8 @@ openunison:
     SHOW_PORTAL_ORGS: "true"
     K8S_DEPLOYMENT_NAME: Control Plane
     K8S_GIT_URL: git@github.com:TremoloSecurity/argocd-deploy-naas.git
+    GIT_USERNAME: openunison
+    GIT_EMAIL: openunison@tremolo.io
   role_attribute: portalGroups
   groups:
     areJson: "true"
