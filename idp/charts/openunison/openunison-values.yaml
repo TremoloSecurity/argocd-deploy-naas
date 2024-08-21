@@ -108,8 +108,7 @@ services:
   node_selectors: []
   
 openunison:
-  git:
-    path: "/cluster"
+  
   replicas: 1
   orchestra_login_portal_name: openunison
   non_secret_data:
@@ -124,6 +123,8 @@ openunison:
   enable_provisioning: true
   use_standard_jit_workflow: false
   naas:
+    git:
+      path: "/cluster"
     groups:
       external:
         enabled: true
