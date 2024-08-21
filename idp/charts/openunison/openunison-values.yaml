@@ -27,6 +27,7 @@ enable_impersonation: true
 impersonation:
   use_jetstack: true
   explicit_certificate_trust: true
+  orchestra_release_name: openunison
 
 dashboard:
   namespace: "kubernetes-dashboard"
