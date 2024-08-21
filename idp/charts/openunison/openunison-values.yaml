@@ -19,7 +19,7 @@ cert_template:
   c: "MyCountry"
 
 
-image: docker.io/mlbiam/openunison-k8s-tmp:latest
+#image: docker.io/mlbiam/openunison-k8s-tmp:latest
 myvd_config_path: "WEB-INF/myvd.conf"
 k8s_cluster_name: control-plane
 enable_impersonation: true
@@ -108,6 +108,8 @@ services:
   node_selectors: []
   
 openunison:
+  git:
+    path: "/cluster"
   replicas: 1
   orchestra_login_portal_name: openunison
   non_secret_data:
