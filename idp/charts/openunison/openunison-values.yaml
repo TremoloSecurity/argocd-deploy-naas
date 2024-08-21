@@ -124,7 +124,7 @@ openunison:
   use_standard_jit_workflow: false
   naas:
     git:
-      prefix: "/cluster"
+      prefix: "/idp/cluster"
     groups:
       external:
         enabled: true
