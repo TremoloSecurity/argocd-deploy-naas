@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard
+  namespace: argocd
+spec:
+  project: default
+  sources:
+  - repoURL: 'https://kubernetes.github.io/dashboard/'
+    targetRevision: 7.5.0
+    helm:
+      valueFiles:
+      - $values/idp/charts/kubernetes-dashboard/kubernetes-dashboard.yaml
+    chart: kubernetes-dashboard
+  - repoURL: git@github.com:TremoloSecurity/argocd-deploy-naas.git
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kubernetes-dashboard

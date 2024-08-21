@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openunison-wf
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:TremoloSecurity/argocd-deploy-naas.git'
+    targetRevision: HEAD
+    path: idp/cluster
+    directory:
+      recurse: true
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+
+  syncPolicy:
+    automated: {}
