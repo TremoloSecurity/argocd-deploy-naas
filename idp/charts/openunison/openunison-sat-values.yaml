@@ -1,0 +1,127 @@
+network:
+  openunison_host: "k8sou.idp-cp2.tremolo.dev"
+  dashboard_host: "k8sdb.idp-cp2.tremolo.dev"
+  api_server_host: "k8sapi.idp-cp2.tremolo.dev"
+  session_inactivity_timeout_seconds: 900
+  k8s_url: https://192.168.2.130:6443
+  force_redirect_to_tls: true
+  createIngressCertificate: false
+  ingress_type: nginx
+  ingress_annotations:
+    cert-manager.io/cluster-issuer: enterprise-ca
+    
+
+cert_template:
+  ou: "Kubernetes"
+  o: "MyOrg"
+  l: "My Cluster"
+  st: "State of Cluster"
+  c: "MyCountry"
+
+
+#image: docker.io/mlbiam/openunison-k8s-tmp:latest
+myvd_config_path: "WEB-INF/myvd.conf"
+k8s_cluster_name: satelite-x
+enable_impersonation: true
+
+impersonation:
+  use_jetstack: true
+  explicit_certificate_trust: true
+  orchestra_release_name: openunison
+
+dashboard:
+  namespace: "kubernetes-dashboard"
+  cert_name: "kubernetes-dashboard-certs"
+  label: "k8s-app=kubernetes-dashboard"
+  service_name: kubernetes-dashboard
+  require_session: true
+  new: true
+
+certs:
+  use_k8s_cm: false
+
+trusted_certs:
+  - name: unison-ca
+    pem_b64: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURFVENDQWZtZ0F3SUJBZ0lVYmtiS2ZRN29ldXJuVHpyeWdIL0dDS0kzNkUwd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0dERVdNQlFHQTFVRUF3d05aVzUwWlhKd2NtbHpaUzFqWVRBZUZ3MHlNakV4TURjeE5EUTFNakphRncwegpNakV4TURReE5EUTFNakphTUJneEZqQVVCZ05WQkFNTURXVnVkR1Z5Y0hKcGMyVXRZMkV3Z2dFaU1BMEdDU3FHClNJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNucVZ3eVFvMjJyRzZuVVpjU2UvR21WZnI5MEt6Z3V4MDkKNDY4cFNTUWRwRHE5UlRRVU92ZkFUUEJXODF3QlJmUDEvcnlFaHNocnVBS2E5LzVoKzVCL3g4bmN4VFhwbThCNwp2RDdldHY4V3VyeUtQc0lMdWlkT0QwR1FTRVRvNzdBWE03RmZpUk9yMDFqN3c2UVB3dVB2QkpTcDNpa2lDL0RjCnZFNjZsdklFWE43ZFNnRGRkdnV2R1FORFdPWWxHWmhmNUZIVy81ZHJQSHVPOXp1eVVHK01NaTFpUCtSQk1QUmcKSWU2djhCcE9ncnNnZHRtWExhNFZNc1BNKzBYZkQwSDhjU2YvMkg2V1M0LzdEOEF1bG5QSW9LY1krRkxKUEFtMwpJVFI3L2w2UTBJUXVNU3c2QkxLYWZCRm5CVmNUUVNIN3lKZEFKNWdINFZZRHIyamtVWkwzQWdNQkFBR2pVekJSCk1CMEdBMVVkRGdRV0JCU2Y5RDVGS3dISUY3eFdxRi80OG4rci9SVFEzakFmQmdOVkhTTUVHREFXZ0JTZjlENUYKS3dISUY3eFdxRi80OG4rci9SVFEzakFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQTBHQ1NxR1NJYjNEUUVCQ3dVQQpBNElCQVFCN1BsMjkrclJ2eHArVHhLT3RCZGRLeEhhRTJVRUxuYmlkaFUvMTZRbW51VmlCQVhidUVSSEF2Y0phCm5hb1plY0JVQVJ0aUxYT2poOTFBNkFvNVpET2RETllOUkNnTGI2czdDVVhSKzNLenZWRmNJVFRSdGtTTkxKMTUKZzRoallyQUtEWTFIM09zd1EvU3JoTG9GQndneGJJQ1F5eFNLaXQ0OURrK2V4c3puMUJFNzE2aWlJVmdZT0daTwp5SWF5ekJZdW1Gc3M0MGprbWhsbms1ZW5hYjhJTDRUcXBDZS9xYnZtNXdOaktaVVozamJsM2QxVWVtcVlOdVlWCmNFY1o0UXltQUJZS3k0VkUzVFJZUmJJZGV0NFY2dVlIRjVZUHlFRWlZMFRVZStYVVJaVkFtaU9jcmtqblVIT3gKMWJqelJxSlpMNVR3b0ZDZzVlZUR6dVk0WlRjYwotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+
+
+monitoring:
+  prometheus_service_account: system:serviceaccount:monitoring:prometheus-k8s
+
+
+
+
+
+# Uncomment one of the below options for authentication
+#active_directory:
+#  base: cn=users,dc=ent2k12,dc=domain,dc=com
+#  host: "192.168.2.75"
+#  port: "636"
+#  bind_dn: "cn=Administrator,cn=users,dc=ent2k12,dc=domain,dc=com"
+#  con_type: ldaps
+#  srv_dns: "false"
+
+oidc:
+ client_id: 0oan5lim7ox8IiU99357
+ issuer: https://dev-874494.okta.com/
+ user_in_idtoken: false
+ domain: ""
+ scopes: openid email profile groups
+ claims:
+   sub: sub
+   email: email
+   given_name: given_name
+   family_name: family_name
+   display_name: name
+   groups: groups
+ type: okta
+
+#github:
+#  client_id: d85d77c55a08c9bcbb15
+#  teams: TremoloSecurity/
+
+#saml:
+#  idp_url: "https://portal.apps.tremolo.io/idp-test/metadata/dfbe4040-cd32-470e-a9b6-809c8f857c40"
+
+
+
+  
+
+network_policies:
+  enabled: false
+  ingress:
+    enabled: true
+    labels:
+      kubernetes.io/metadata.name: ingress-nginx-internet
+  monitoring:
+    enabled: true
+    labels:
+      kubernetes.io/metadata.name: monitoring
+  apiserver:
+    enabled: true
+    labels:
+      kubernetes.io/metadata.name: kube-system
+
+services:
+  enable_tokenrequest: false
+  token_request_audience: api
+  token_request_expiration_seconds: 600
+  node_selectors: []
+  
+openunison:
+  
+  replicas: 1
+  orchestra_login_portal_name: openunison
+  non_secret_data:
+    K8S_DB_SSO: oidc
+    PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
+    SHOW_PORTAL_ORGS: "false"
+    K8S_DEPLOYMENT_NAME: Region 1
+  role_attribute: portalGroups
+  groups:
+    areJson: "true"
+  use_standard_jit_workflow: false
+  
+  secrets: []
+  html:
+    prefix: openunison

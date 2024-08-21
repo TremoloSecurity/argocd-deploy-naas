@@ -1,0 +1,43 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openunison
+  namespace: argocd
+spec:
+  project: default
+  ignoreDifferences:
+  - group: "admissionregistration.k8s.io"
+    kind: "ValidatingWebhookConfiguration"
+    jsonPointers:
+    - /webhooks/0/clientConfig/caBundle
+    - /webhooks/1/clientConfig/caBundle
+    - /webhooks/2/clientConfig/caBundle
+    - /webhooks/3/clientConfig/caBundle
+    - /webhooks/4/clientConfig/caBundle
+  syncPolicy:
+    syncOptions:
+    - RespectIgnoreDifferences=true
+  sources:
+  - repoURL: 'https://nexus.tremolo.io/repository/helm'
+    targetRevision: 3.0.13
+    helm:
+      valueFiles:
+      - $values/idp/charts/openunison/openunison-values.yaml
+    chart: openunison-operator
+  - repoURL: 'https://nexus.tremolo.io/repository/helm'
+    targetRevision: 2.10.56
+    helm:
+      valueFiles:
+      - $values/idp/charts/openunison/openunison-values.yaml
+    chart: orchestra
+  - repoURL: 'https://nexus.tremolo.io/repository/helm'
+    targetRevision: 2.3.54
+    helm:
+      valueFiles:
+      - $values/idp/charts/openunison/openunison-values.yaml
+    chart: orchestra-login-portal
+  - repoURL: git@github.com:TremoloSecurity/argocd-deploy-naas.git
+    ref: values
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: openunison
