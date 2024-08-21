@@ -133,6 +133,8 @@ openunison:
         enabled: true
         adminGroup: k8s-admins
         clusterAdminGroup: k8s-admins
+      internal:
+        enabled: false
   secrets: []
   html:
     prefix: openunison
