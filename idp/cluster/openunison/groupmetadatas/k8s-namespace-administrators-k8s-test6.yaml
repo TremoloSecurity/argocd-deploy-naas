@@ -1,0 +1,16 @@
+kind: GroupMetaData
+apiVersion: openunison.tremolo.io/v1
+metadata:
+  name: k8s-namespace-administrators-k8s-test6
+  namespace: openunison
+  labels:
+    name: k8s-namespace-administrators-k8s-test6
+    app.kubernetes.io/name: openunison
+    app.kubernetes.io/instance: openunison-openunison
+    app.kubernetes.io/component: openunison-groupmetadata
+    app.kubernetes.io/part-of: openunison
+  annotations:
+    tremolo.io/managedByGit: "true"
+spec:
+  groupName: k8s-namespace-administrators-k8s-test6-external
+  externalName: "k8s-admin-tenant1"
