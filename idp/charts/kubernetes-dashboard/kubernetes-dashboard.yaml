@@ -1,5 +1,5 @@
 nameOverride: kubernetes-dashboard
-fullNameOverride: kubernetes-dashboard
+fullnameOverride: kubernetes-dashboard
 
 nginx:
   enabled: false
