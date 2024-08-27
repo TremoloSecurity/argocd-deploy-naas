@@ -1,3 +1,5 @@
+fullnameOveride: openunison-openunison
+
 network:
   openunison_host: "k8sou.idp-dev2.tremolo.dev"
   dashboard_host: "k8sdb.idp-dev2.tremolo.dev"
