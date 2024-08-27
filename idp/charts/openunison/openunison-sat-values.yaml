@@ -1,7 +1,7 @@
 network:
-  openunison_host: "k8sou.idp-cp2.tremolo.dev"
-  dashboard_host: "k8sdb.idp-cp2.tremolo.dev"
-  api_server_host: "k8sapi.idp-cp2.tremolo.dev"
+  openunison_host: "k8sou.idp-dev2.tremolo.dev"
+  dashboard_host: "k8sdb.idp-dev2.tremolo.dev"
+  api_server_host: "k8sapi.idp-dev2.tremolo.dev"
   session_inactivity_timeout_seconds: 900
   k8s_url: https://192.168.2.130:6443
   force_redirect_to_tls: true
@@ -21,7 +21,7 @@ cert_template:
 
 #image: docker.io/mlbiam/openunison-k8s-tmp:latest
 myvd_config_path: "WEB-INF/myvd.conf"
-k8s_cluster_name: satelite-x
+k8s_cluster_name: satelite-1
 enable_impersonation: true
 
 impersonation:
@@ -117,10 +117,6 @@ openunison:
     PROMETHEUS_SERVICE_ACCOUNT: system:serviceaccount:monitoring:prometheus-k8s
     SHOW_PORTAL_ORGS: "false"
     K8S_DEPLOYMENT_NAME: Region 1
-  role_attribute: portalGroups
-  groups:
-    areJson: "true"
-  use_standard_jit_workflow: false
   
   secrets: []
   html:
