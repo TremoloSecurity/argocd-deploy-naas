@@ -1,4 +1,5 @@
-fullnameOverride: openunison-openunison
+nameOverride: openunison
+fullnameOverride: openunison
 
 network:
   openunison_host: "k8sou.idp-dev2.tremolo.dev"
