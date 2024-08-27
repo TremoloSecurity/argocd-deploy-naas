@@ -36,8 +36,8 @@ spec:
       valueFiles:
       - $values/idp/charts/openunison/openunison-values.yaml
     chart: orchestra-login-portal
-  - repoURL: 'https://nexus.tremolo.io/repository/helm'
-    targetRevision: 3.0.31
+  - repoURL: 'https://nexus.tremolo.io/repository/helm-betas'
+    targetRevision: 3.0.33
     helm:
       valueFiles:
       - $values/idp/charts/openunison/openunison-values.yaml
