@@ -2,9 +2,9 @@ nameOverride: yabadabadoo
 fullnameOverride: yabadabadoo
 
 network:
-  openunison_host: "k8sou.idp-dev2.tremolo.dev"
-  dashboard_host: "k8sdb.idp-dev2.tremolo.dev"
-  api_server_host: "k8sapi.idp-dev2.tremolo.dev"
+  openunison_host: "k8soux.idp-dev2.tremolo.dev"
+  dashboard_host: "k8sdbx.idp-dev2.tremolo.dev"
+  api_server_host: "k8sapix.idp-dev2.tremolo.dev"
   session_inactivity_timeout_seconds: 900
   k8s_url: https://192.168.2.130:6443
   force_redirect_to_tls: true
