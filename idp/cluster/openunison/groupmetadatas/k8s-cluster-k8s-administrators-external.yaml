@@ -1,0 +1,14 @@
+apiVersion: openunison.tremolo.io/v1
+kind: GroupMetaData
+metadata:
+  labels:
+    app.kubernetes.io/component: openunison-groupmetadata
+    app.kubernetes.io/instance: openunison-openunison
+    app.kubernetes.io/name: openunison
+    app.kubernetes.io/part-of: openunison
+    argocd.argoproj.io/instance: openunison
+  name: k8s-cluster-k8s-administrators
+  namespace: openunison
+spec:
+  externalName: k8s-admins
+  groupName: k8s-cluster-k8s-administrators-external
