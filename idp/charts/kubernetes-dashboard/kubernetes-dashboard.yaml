@@ -1,3 +1,6 @@
+nameOverride: kubernetes-dashboard
+fullnameOverride: kubernetes-dashboard
+
 nginx:
   enabled: false
 
