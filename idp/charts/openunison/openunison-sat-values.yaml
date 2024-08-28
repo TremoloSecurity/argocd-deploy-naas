@@ -112,7 +112,7 @@ services:
   node_selectors: []
   
 openunison:
-  
+  use_standard_jit_workflow: false
   replicas: 1
   orchestra_login_portal_name: openunison
   non_secret_data:
