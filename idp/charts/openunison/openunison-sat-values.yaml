@@ -1,5 +1,5 @@
-nameOverride: yabadabadoo
-fullnameOverride: yabadabadoo
+nameOverride: kubernetes-dashboard
+fullnameOverride: kubernetes-dashboard
 
 network:
   openunison_host: "k8sou.idp-dev2.tremolo.dev"
