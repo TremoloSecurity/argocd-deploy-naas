@@ -1,5 +1,5 @@
-nameOverride: openunison-openunison
-fullnameOverride: openunison-openunison
+nameOverride: yabadabadoo
+fullnameOverride: yabadabadoo
 
 network:
   openunison_host: "k8sou.idp-dev2.tremolo.dev"
